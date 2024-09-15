@@ -14,24 +14,19 @@ public class Main {
 
         System.out.println("Herzlich willkommen in Taschenrechner! Hier kann nur Ganzzahlzählung verwendet werden");
 
-        boolean bedinung = true;
+        boolean fortfahren = true;
 
-        while (bedinung){
+        while (fortfahren){
             char operation;
             int x;
             int y;
 
             System.out.println("Wähle die Operation +, -, / oder *. Dann drück enter");
-
             operation = scanner.next().charAt(0);
 
             System.out.println("Gib die Zahlen");
-
             x = scanner.nextInt();
-            scanner.nextLine();
             y = scanner.nextInt();
-            scanner.nextLine();
-
 
             switch (operation){
                 case '+':
@@ -56,7 +51,7 @@ public class Main {
 
             System.out.println("Willst du fortfahren j/n");
 
-            bedinung = (scanner.next().charAt(0) == 'j') ? true: false;
+            fortfahren = (scanner.next().charAt(0) == 'j') ? true: false;
 
 
         }
