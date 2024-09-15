@@ -1,17 +1,64 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
+
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Scanner scanner = new Scanner(System.in);
+        Taschenrehner taschenrehner = new Taschenrehner();
+
+
+        System.out.println("Herzlich willkommen in Taschenrechner! Hier kann nur Ganzzahlzählung verwendet werden");
+
+        boolean bedinung = true;
+
+        while (bedinung){
+            char operation;
+            int x;
+            int y;
+
+            System.out.println("Wähle die Operation +, -, / oder *. Dann drück enter");
+
+            operation = scanner.next().charAt(0);
+
+            System.out.println("Gib die Zahlen");
+
+            x = scanner.nextInt();
+            scanner.nextLine();
+            y = scanner.nextInt();
+            scanner.nextLine();
+
+
+            switch (operation){
+                case '+':
+                    taschenrehner.add(x, y);
+                    break;
+
+                case '-':
+                    taschenrehner.min(x, y);
+                    break;
+
+                case '*':
+                    taschenrehner.mul(x, y);
+                    break;
+
+                case '/':
+                    taschenrehner.div(x, y);
+                    break;
+
+                default:
+                    System.out.println("Gib den richtigen Befehl ein");
+            }
+
+            System.out.println("Willst du fortfahren j/n");
+
+            bedinung = (scanner.next().charAt(0) == 'j') ? true: false;
+
+
         }
     }
 }
